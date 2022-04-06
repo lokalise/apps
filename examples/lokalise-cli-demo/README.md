@@ -4,7 +4,7 @@
 
 ## Step 1: Install Lokalise CLI
 
-Install Lokalise CLI by running following cide in the terminal. 
+Install Lokalise CLI by running following command in the terminal. 
 
 ```shell
 curl -sfL https://raw.githubusercontent.com/lokalise/lokalise-cli-2-go/master/install.sh | sh
