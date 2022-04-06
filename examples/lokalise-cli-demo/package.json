@@ -1,0 +1,21 @@
+{
+  "name": "lokalise-cli-demo",
+  "version": "0.0.1",
+  "description": "Upload translation file to your Lokalise project using Lokalise CLI",
+  "main": "index.js",
+  "scripts": {
+    "upload-files": "node uploadFiles.js"
+  },
+  "dependencies": {
+    "dotenv": "^16.0.0",
+    "shelljs": "^0.8.5"
+  },
+  "engines": {
+    "node": "12.x"
+  },
+  "license": "MIT",
+  "keywords": [
+    "glitch",
+    "lokalise cli"
+  ]
+}
