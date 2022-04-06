@@ -1,6 +1,7 @@
 # Lokalise CLI DEMO
 
-[https://github.com/lokalise/apps/tree/main/examples/lokalise-cli-demo](https://github.com/lokalise/apps/tree/main/examples/lokalise-cli-demo)
+1. [https://github.com/lokalise/apps/tree/main/examples/lokalise-cli-demo](https://github.com/lokalise/apps/tree/main/examples/lokalise-cli-demo)
+2. [Lokalise CLI demo project on Glitch](https://glitch.com/edit/#!/lokalise-cli-demo?path=README.md)
 
 ## Step 1: Install Lokalise CLI
 
