@@ -36,10 +36,11 @@ Install `@lokalise/node-api` and `dotenv` packages and save them to your `packag
 
 ## Getting an API token to use the Lokalise API
 
-Create  `.env`  file on the root of the project and add your Lokalise API token. Make sure to API token with **read** and **write** access to your Lokalise projects. [How to get Lokalise API token?](https://docs.lokalise.com/en/articles/1929556-api-tokens)
+Create  `.env`  file on the root of the project and add your Lokalise API token and your Lokalise project id. Make sure to API token with **read** and **write** access to your Lokalise projects. [How to get Lokalise API token?](https://docs.lokalise.com/en/articles/1929556-api-tokens) and [how to get your Lokalise project id?](https://docs.lokalise.com/en/articles/1400460-projects#project-id).
 
 ```env
     LOKALISE_API_TOKEN=<YOUR_LOKALISE_API_TOKEN>
+    LOKALISE_PROJECT_ID=<YOUR_LOKALISE_PROJECT_ID>
 ```
 
 Create a new file called `index.js` on the root of the project and import dependencies by adding the following code:
@@ -54,22 +55,9 @@ Create a new file called `index.js` on the root of the project and import depend
 Add the following code to `index.js` to read the Lokalise API token from the environment variable and initialize the Lokalise API client.
 
 ```js
-    const { LOKALISE_API_TOKEN } = process.env;
+    const { LOKALISE_API_TOKEN,LOKALISE_PROJECT_ID } = process.env;
     const lokaliseApi = new LokaliseApi({ apiKey: LOKALISE_API_TOKEN});
 ```
-
-
-## Get your Lokalise project id
-
-Add the following code to  `index.js`  and replace `<YOUR_PROjECT_ID> ` with your Lokalise project id. [How to get the Lokalise project id?](https://docs.lokalise.com/en/articles/1400460-projects#project-id)
-
-```js
-    const lokaliseProjectId = '<YOUR_PROjECT_ID>';
-```
-
-Your `index.js` file should like similar to this.
-
-![](./img/indexjs-file.png)
 
 ## Add translation file
 
@@ -99,7 +87,7 @@ Add the following code to your `index.js` file to upload the translation keys to
     (async function () {
         try {
             const data_base64 = Buffer.from(JSON.stringify(englishI18nFile)).toString("base64");
-            process = await lokaliseApi.files().upload(lokaliseProjectId,
+            process = await lokaliseApi.files().upload(LOKALISE_PROJECT_ID,
                 { data: data_base64, filename, lang_iso }
             );
             console.log('upload process --->', process.status);
@@ -115,9 +103,8 @@ Your `index.js` file should look similar to this.
 ```js
     const { LokaliseApi } = require('@lokalise/node-api');
     require('dotenv').config()
-    const { LOKALISE_API_TOKEN } = process.env;
+    const { LOKALISE_API_TOKEN, LOKALISE_PROJECT_ID } = process.env;
     const lokaliseApi = new LokaliseApi({ apiKey: LOKALISE_API_TOKEN });
-    const lokaliseProjectId = '874521126244044f0d1594.60069165';
     
     const englishI18nFile = require('./translations/en.json');
     const filename = 'en.json';
@@ -125,7 +112,7 @@ Your `index.js` file should look similar to this.
     (async function () {
         try {
             const data_base64 = Buffer.from(JSON.stringify(englishI18nFile)).toString("base64");
-            process = await lokaliseApi.files().upload(lokaliseProjectId,
+            process = await lokaliseApi.files().upload(LOKALISE_PROJECT_ID,
                 { data: data_base64, filename, lang_iso }
             );
             console.log('upload process --->', process.status);
