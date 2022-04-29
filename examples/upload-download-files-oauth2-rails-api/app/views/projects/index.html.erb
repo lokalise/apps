@@ -1,0 +1,13 @@
+<h1>Choose a project to work with</h1>
+
+<ul>
+  <% @projects.each do |project| %>
+    <li>
+      <%= button_to project[:name], projects_choose_path(project_id: project[:id]) %>
+      ID: <%= project[:id] %>
+      <% if session[:lokalise_project_id] == project[:id] %>
+        (currently chosen)
+      <% end %>
+    </li>
+  <% end %>
+</ul>
