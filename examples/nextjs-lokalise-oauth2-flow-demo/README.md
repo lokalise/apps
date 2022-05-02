@@ -1,5 +1,7 @@
 This is a [Next.js](https://nextjs.org/) [Lokalise](https://lokalise.com) Oauth2 flow demo project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
+[Nextjs Lokalise Oauth2 flow demo example](https://nextjs-lokalise-oauth2-flow-demo.vercel.app/)
+
 
 ## Prerequisites
 
