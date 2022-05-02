@@ -1,0 +1,16 @@
+{
+    "activerecord:attributes:question:body": "Body",
+    "activerecord:attributes:question:title": "Title",
+    "activerecord:models:question": "Question",
+    "app.description": "Demo app description modified тще",
+    "app.name": "Demo app",
+    "download_btn": "Download it!",
+    "download_title": "Download translation file",
+    "en": "English",
+    "menu:home": "Home",
+    "pages:index:title": "Welcome to AskIt!",
+    "questions:destroy:success": "Question deleted!",
+    "ru": "Russian",
+    "upload_btn": "Upload!",
+    "upload_title": "Upload translation file"
+}
