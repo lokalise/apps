@@ -1,0 +1,14 @@
+<h1>OAuth 2 flow</h1>
+
+<% if session[:lokalise_token].present? %>
+  Your OAuth 2 token: <%= session[:lokalise_token] %><br>
+  Your OAuth 2 refresh token: <%= session[:lokalise_refresh] %><br>
+  Your Lokalise project id: <%= session[:lokalise_project_id] %><br>
+
+  <%= link_to 'Choose a project to work with', projects_path %><br>
+  <%= link_to 'Upload file', uploads_new_path %><br>
+  <%= link_to 'Download file', downloads_new_path %><br><br>
+  <%= link_to 'Log out', oauth2_flows_log_out_path %>
+<% else %>
+  <%= link_to 'Log in via Lokalise', @auth_url %>
+<% end %>
