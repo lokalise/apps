@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<title>Login to Lokalise</title>
+</head>
+<body>
+	<h1>Lokalise OAuth 2 login</h1>
+
+	{% if session['token'] %}
+		<p>
+			Your OAuth 2 token: {{ session['token'] }}<br>
+			{% if session['project_id'] %}
+				Your project ID: {{ session['project_id'] }}<br>
+			{% endif %}
+			
+			<a href="/projects">Choose a project to work with</a><br>
+			<a href="/upload">Upload translation file</a><br>
+			<a href="/download">Download translation file</a>
+		</p>
+		
+		<form action="/logout" method="POST">
+			<input type="submit" value="Logout">
+		</form>
+	{% else %}
+		<a href="{{ login_url }}">Login!</a>
+	{% endif %}
+</body>
+</html>

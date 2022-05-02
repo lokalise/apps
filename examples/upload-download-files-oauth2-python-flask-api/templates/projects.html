@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<title>Your Lokalise projects</title>
+</head>
+<body>
+	<h1>Choose a Lokalise project to work with</h1>
+	
+	{% for project in projects %}
+		<p>
+			{{ project.name }}
+			{% if session['project_id'] == project.project_id %}
+				(currently chosen)
+			{% endif %}
+		</p>
+		<form action="/projects" method="POST">
+			<input type="hidden" value="{{ project.project_id }}" name="project_id">
+			<input type="submit" value="Choose">
+		</form>
+		
+		<hr>
+	{% endfor %}
+</body>
+</html>
