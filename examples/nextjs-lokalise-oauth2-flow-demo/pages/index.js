@@ -18,14 +18,8 @@ export async function getServerSideProps({ query, req }) {
   let projects = null;
   
   if (apiToken) {
-    // const { access_token } = await lokaliseAuth.token(apiToken);
-    // console.log('access_token', access_token);
-    // const lokaliseApi = new LokaliseApiOAuth({ apiKey:  access_token });
-    // projects = await lokaliseApi.projects().list();
-
     const lokaliseApi = new LokaliseApiOAuth({ apiKey: apiToken });
     projects = await lokaliseApi.projects().list();
-    await console.log(projects, JSON.stringify(projects.items));
   }
 
   // Pass data to the page via props
