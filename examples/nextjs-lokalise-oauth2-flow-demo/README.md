@@ -3,10 +3,11 @@ This is a [Next.js](https://nextjs.org/) [Lokalise](https://lokalise.com) Oauth2
 
 ## Prerequisites
 
-You need to have `client_id` and `client_secret` by registering your app with Lokalise, you should contact our support team. For more details refer [here](https://docs.lokalise.com/en/articles/5574713-oauth-2#h_8d9d4e1024). Create `env.local` file and add `client_id` and `client_secret` as shown below.
+You need to have `client_id` and `client_secret` by registering your app with Lokalise, you should contact our support team. For more details refer [here](https://docs.lokalise.com/en/articles/5574713-oauth-2#h_8d9d4e1024). Create `env.local` file and add `client_id`, `client_secret` and callback url(example: http://localhost:3001/callback) as shown below.
 ```
 LOKALISE_APP_CLIENT_ID=<YOUR_APP_CLIENT_ID>
 LOKALISE_APP_CLIENT_SECRET=<YOUR_APP_SECRET_ID>
+LOKALISE_APP_CALLBACK_URL=<YOUR_CALLBACK_URL>
 ```
 
 
