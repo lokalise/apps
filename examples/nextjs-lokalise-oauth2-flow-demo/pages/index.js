@@ -28,7 +28,7 @@ export async function getServerSideProps({ query, req }) {
       url, 
       isAppAuthorized: !!apiToken || false, 
       isUrlQueryAuthorized: !!query.authorized || false,
-      projects: JSON.parse(JSON.stringify(projects.items)) || []
+      projects: (projects ? JSON.parse(JSON.stringify(projects.items)) : [])
     } 
   }
 }
@@ -76,9 +76,9 @@ export default function Home({ url, isAppAuthorized, isUrlQueryAuthorized, proje
         </h1>
         <hr />
         <div>
-          <h3> Your recent Lokalise projects</h3>
+        {!!projects.length && <h3> Your recent Lokalise projects</h3>}
           <ul>
-            {projects.map(({name, project_id}) => (<li key={project_id}>{name}</li>))}
+            {!!projects.length && projects.map(({name, project_id}) => (<li key={project_id}>{name}</li>))}
           </ul>
         </div>
         
