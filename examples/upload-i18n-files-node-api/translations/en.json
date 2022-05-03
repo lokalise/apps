@@ -1,5 +1,8 @@
-
-  {
-    "app.name": "demo app",
-    "app.decsription": "demo app description"
+{
+  "app.description": "Demo app description modified",
+  "app.name": "Demo app",
+  "download_btn": "Download it!",
+  "download_title": "Download translation file",
+  "upload_btn": "Upload!",
+  "upload_title": "Upload translation file"
 }
