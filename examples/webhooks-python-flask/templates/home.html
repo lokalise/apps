@@ -6,10 +6,20 @@
 <body>
 	<h1>Register a webhook</h1>
 
+  {% with messages = get_flashed_messages() %}
+    {% if messages %}
+      <ul class=flashes>
+      {% for message in messages %}
+        <li>{{ message }}</li>
+      {% endfor %}
+      </ul>
+    {% endif %}
+  {% endwith %}
+
   <form action="/webhooks" method="POST">
     <label for="project_id">Enter your Lokalise project ID:</label>
     <input type="text" name="project_id" id="project_id">
-    <input type="submit" value="Logout">
+    <input type="submit" value="Register">
   </form>
 </body>
 </html>
