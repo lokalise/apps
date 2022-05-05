@@ -1,0 +1,11 @@
+<header>
+  <h1>{{title}}</h1>
+</header>
+
+{{#each flash_messages as |msg|}}
+  {{#each msg}}
+    <div>
+      {{this}}
+    </div>
+  {{/each}}
+{{/each}}
