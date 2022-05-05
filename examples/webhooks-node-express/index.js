@@ -6,7 +6,7 @@ import { setupAssets } from "./config/assets.js"
 
 const app = express()
 app.use(express.urlencoded({extended: true}))
-
+app.use(express.json())
 app.use(cookieSession({
   name: 'session',
   secret: 'my_super_secret',
