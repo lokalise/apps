@@ -1,0 +1,6 @@
+<h2>Select a project</h2>
+<ul>
+{% for project in projects %}
+    <li><a href="{{ path('oauth_select_project', {projectId: project.id}) }}">{{ project.name }}</a></li>
+{% endfor %}
+</ul>

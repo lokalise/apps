@@ -1,0 +1,18 @@
+{% if lokaliseToken is not null %}
+    <h2>OAuth 2 session status</h2>
+    <ul>
+        <li>Your OAuth 2 token: {{ lokaliseToken }}</li>
+        <li>Your OAuth 2 refresh token: {{ lokaliseRefreshToken }}</li>
+        <li>Your OAuth 2 project id: {{ lokaliseProjectId }}</li>
+        <li><a href="{{ path('oauth_logout')}}">Log out</a></li>
+    </ul>
+    <hr>
+    <ul>
+        <li><a href="{{ path('list_projects') }}">Select a project</a></li>
+        <li><a href="{{ path('oauth_upload')}}">{{'upload_btn'|trans }}</a></li>
+        <li><a href="{{ path('oauth_download')}}">{{'download_btn'|trans }}  </a></li>
+    </ul>
+
+{% else %}
+    <a href="{{ path('oauth_authenticate')}}">Log in via Lokalise</a>
+{% endif %}
