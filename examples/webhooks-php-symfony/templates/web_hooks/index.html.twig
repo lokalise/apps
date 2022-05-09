@@ -1,0 +1,9 @@
+{% for message in app.flashes('notice') %}
+    <div><strong>{{ message }}</strong></div>
+{% endfor %}
+<br />
+
+<form method="post" action="{{ path('app_hooks_register')}}">
+    <label>Enter Project ID: <input type="text" name="projectId" /></label><br /><br />
+    <input type="submit" value="Register webhook" />
+</form>
