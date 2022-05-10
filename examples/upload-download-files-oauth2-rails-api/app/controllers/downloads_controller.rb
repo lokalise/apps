@@ -11,9 +11,9 @@ class DownloadsController < ApplicationController
   def new; end
 
   def create
-    client = RubyLokaliseApi.oauth2_client session[:lokalise_token] #.client ENV['LOKALISE_API_KEY']
+    client = RubyLokaliseApi.oauth2_client session[:lokalise_token] # .client ENV['LOKALISE_API_KEY']
 
-    zip_file = client.download_files(ENV['LOKALISE_PROJECT_ID'],
+    zip_file = client.download_files(session[:lokalise_project_id], # ENV['LOKALISE_PROJECT_ID'],
                                      format: 'yaml',
                                      placeholder_format: :icu,
                                      yaml_include_root: true,
@@ -24,7 +24,7 @@ class DownloadsController < ApplicationController
 
     open_and_process zip_file
 
-    redirect_to downloads_new_path
+    redirect_to new_download_path
   end
 
   private
@@ -33,6 +33,7 @@ class DownloadsController < ApplicationController
     Zip::File.open_buffer(open_remote(path)) do |zip|
       zip.each do |entry|
         next unless entry.name == 'en.yml'
+
         process_zip(entry)
       end
     end

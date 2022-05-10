@@ -3,7 +3,7 @@
 <ul>
   <% @projects.each do |project| %>
     <li>
-      <%= button_to project[:name], projects_choose_path(project_id: project[:id]) %>
+      <%= button_to project[:name], choose_projects_path(project_id: project[:id]) %>
       ID: <%= project[:id] %>
       <% if session[:lokalise_project_id] == project[:id] %>
         (currently chosen)

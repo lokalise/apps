@@ -10,15 +10,15 @@ class UploadsController < ApplicationController
 
   def create
     client = RubyLokaliseApi.oauth2_client session[:lokalise_token]
-    #client = RubyLokaliseApi.client ENV['LOKALISE_API_KEY']
+    # client = RubyLokaliseApi.client ENV['LOKALISE_API_KEY']
 
     file_content = File.read "#{Rails.root}/config/locales/en.yml"
 
-    client.upload_file ENV['LOKALISE_PROJECT_ID'],
+    client.upload_file session[:lokalise_project_id], #ENV['LOKALISE_PROJECT_ID'],
                        data: Base64.strict_encode64(file_content.strip),
                        filename: 'en.yml',
                        lang_iso: 'en'
 
-    redirect_to uploads_new_path
+    redirect_to new_upload_path
   end
 end

@@ -6,9 +6,9 @@
   Your Lokalise project id: <%= session[:lokalise_project_id] %><br>
 
   <%= link_to 'Choose a project to work with', projects_path %><br>
-  <%= link_to 'Upload file', uploads_new_path %><br>
-  <%= link_to 'Download file', downloads_new_path %><br><br>
-  <%= link_to 'Log out', oauth2_flows_log_out_path %>
+  <%= link_to 'Upload file', new_upload_path %><br>
+  <%= link_to 'Download file', new_download_path %><br><br>
+  <%= link_to 'Log out', log_out_oauth2_flows_path %>
 <% else %>
   <%= link_to 'Log in via Lokalise', @auth_url %>
 <% end %>

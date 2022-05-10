@@ -48,8 +48,8 @@ gem 'dotenv-rails', '~> 2.7'
 gem 'ruby-lokalise-api', '~> 6.0'
 gem 'rubyzip', '~> 2.3'
 
-gem "omniauth-rails_csrf_protection"
 gem 'omniauth-lokalise'
+gem 'omniauth-rails_csrf_protection'
 
 # Use Sass to process CSS
 # gem "sassc-rails"

@@ -1,21 +1,21 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  get 'downloads/new'
-  post 'downloads/create'
-  get 'uploads/new'
-  post 'uploads/create'
+  resources :downloads, only: %i[new create]
+  resources :uploads, only: %i[new create]
 
-  get 'oauth2_flows/new'
-  get 'oauth2_flows/callback'
-  get 'oauth2_flows/log_out'
+  resources :oauth2_flows, only: %i[new] do
+    collection do
+      get 'callback'
+      get 'log_out'
+    end
+  end
 
-  get 'projects', to: 'projects#index'
-  post 'projects/choose'
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  resources :projects, only: %i[index] do
+    collection do
+      post 'choose'
+    end
+  end
 
-  # Defines the root path route ("/")
-  # root "articles#index"
-  get 'pages', to: 'pages#index'
-  get '/auth/:provider/callback', to: 'pages#create'
+  root 'oauth2_flows#new'
 end
