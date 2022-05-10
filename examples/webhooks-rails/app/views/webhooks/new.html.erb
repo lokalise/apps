@@ -1,0 +1,7 @@
+<h1>Register a new webhook</h1>
+
+<%= form_with url: webhooks_path do |f| %>
+  <%= f.label :project_id %>
+  <%= f.text_field :project_id %>
+  <%= f.submit "Register!" %>
+<% end %>
