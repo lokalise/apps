@@ -1,0 +1,41 @@
+{
+  "name": "custom-processors-boilerplate-server",
+  "private": false,
+  "version": "1.0.0",
+  "description": "An example boilerplate server for integrating with the Lokalise Custom Processor",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "fastify start -w -l info -P app.js",
+    "lint": "eslint .",
+    "prettier": "prettier --write ."
+  },
+  "keywords": [],
+  "author": "Asaph Kotzin",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lokalise/custom-processors-boilerplate-server.git"
+  },
+  "bugs": {
+    "url": "https://github.com/lokalise/custom-processors-boilerplate-server/issues"
+  },
+  "homepage": "https://github.com/lokalise/custom-processors-boilerplate-server",
+  "dependencies": {
+    "config": "^3.3.7",
+    "fastify": "^3.29.0",
+    "fastify-autoload": "^3.13.0",
+    "fastify-cli": "^3.1.0",
+    "fastify-plugin": "^3.0.1"
+  },
+  "devDependencies": {
+    "eslint": "^8.16.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-jest": "^26.4.6",
+    "eslint-plugin-prettier": "^4.0.0",
+    "jest": "^28.1.0",
+    "nodemon": "^2.0.16",
+    "prettier": "^2.6.2"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "name": "Lokalise + Custom Processor + Fastify + Heroku",
+  "description": "A template for implementing the Lokalise Custom Processor server using Fastify on Heroku",
+  "repository": "https://github.com/lokalise/custom-processors-boilerplate-server",
+  "keywords": ["lokalise"]
+}

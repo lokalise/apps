@@ -7,6 +7,6 @@ export class ApplicationController {
   }
   
   static lokaliseApi() {
-    return new LokaliseApi({ apiKey: process.env.LOKALISE_API_TOKEN})
+    return new LokaliseApi({ apiKey: "c5e1d865f52abe6d1660c5441a0da83006759c9d"})
   }
 }
