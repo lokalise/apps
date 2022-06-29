@@ -1,0 +1,5 @@
+{
+    "my.app.name": "Custom processor test app name",
+    "my.app.description": "Custom processor test app short information",
+    "my.app.warning": "⚠️ Custom processor demo warning message"
+}
