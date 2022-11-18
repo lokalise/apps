@@ -4,7 +4,8 @@ export class WebhooksController extends ApplicationController {
   static async create(req, res) {
     try {
       await this.lokaliseApi().webhooks().create(
-        {url: process.env.NOTIFY_URL, events: ['project.key.added']},
+        {url: process.env.NOTIFY_URL,
+				events: ['project.key.added']},
         {project_id: req.body.project_id}
       )
     } catch(e) {

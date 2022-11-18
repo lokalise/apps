@@ -11,8 +11,8 @@ class Oauth2FlowsController < ApplicationController
 
   def callback
     response = auth_client.token params[:code]
-    session[:lokalise_token] = response['access_token']
-    session[:lokalise_refresh] = response['refresh_token']
+    session[:lokalise_token] = response.access_token
+    session[:lokalise_refresh] = response.refresh_token
 
     redirect_to new_oauth2_flow_path
   end
