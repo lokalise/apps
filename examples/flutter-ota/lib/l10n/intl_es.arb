@@ -1,0 +1,10 @@
+{
+    "@@locale": "es",
+    "@@last_modified": "2022-10-05T18:53:09+02:00",
+    "title": "Otra aplicación ToDo",
+    "list_title": "Lista de tareas",
+    "addButton": "Añadir tarea",
+    "title_addItem": "Añada una nueva tarea",
+    "hint_addItem": "Escriba aqui su nueva tarea",
+    "button_addItem": "Añadir"
+}
