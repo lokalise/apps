@@ -31,10 +31,10 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  flutter_localizations:        
-    sdk: flutter                 
-  intl: ^0.17.0                
-  lokalise_flutter_sdk: ^0.2.5
+  flutter_localizations:        # Add this line
+    sdk: flutter                # Add this line   
+  intl: ^0.17.0                 # Add this line 
+  lokalise_flutter_sdk: ^0.4.0  # Add this line
   #lokalise_flutter_sdk: 
   #  path: /Users/jorgevegas/source/lokalise-flutter-sdk
 

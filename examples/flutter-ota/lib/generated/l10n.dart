@@ -1,54 +1,61 @@
 // GENERATED CODE
 //
-// After the template files .arb have been changed (lib/l10/),
+// After the template files .arb have been changed,
 // generate this class by the command in the terminal:
-// tr
+// flutter pub run lokalise_flutter_sdk:gen-lok-l10n
+//
 // Please see https://pub.dev/packages/lokalise_flutter_sdk
 
+// ignore_for_file: non_constant_identifier_names, lines_longer_than_80_chars
+// ignore_for_file: join_return_with_assignment, prefer_final_in_for_each
+// ignore_for_file: avoid_redundant_argument_values, avoid_escaping_inner_quotes
+// ignore_for_file: depend_on_referenced_packages
+
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:intl/intl.dart';
 import 'package:lokalise_flutter_sdk/ota/lokalise_sdk.dart';
 import 'intl/messages_all.dart';
 
-class Tr {
-  Tr();
+class Lt {
+  Lt._internal();
 
-  static Tr? _current;
+  static const LocalizationsDelegate<Lt> delegate = _AppLocalizationDelegate();
 
-  static Tr get current {
-    assert(_current != null,
-        'No instance of Tr was loaded. Try to initialize the Tr delegate before accessing Tr.current.');
-    return _current!;
-  }
+  static const List<Locale> supportedLocales = [
+    Locale.fromSubtags(languageCode: 'en'),
+    Locale.fromSubtags(languageCode: 'es'),
+  ];
 
-  static const AppLocalizationDelegate delegate = AppLocalizationDelegate();
+  static const List<LocalizationsDelegate<dynamic>> localizationsDelegates =
+      <LocalizationsDelegate<dynamic>>[
+    delegate,
+    GlobalMaterialLocalizations.delegate,
+    GlobalCupertinoLocalizations.delegate,
+    GlobalWidgetsLocalizations.delegate,
+  ];
 
-  static Future<Tr> load(Locale locale) {
+  static Future<Lt> load(Locale locale) {
     final name = (locale.countryCode?.isEmpty ?? false)
         ? locale.languageCode
         : locale.toString();
     final localeName = Intl.canonicalizedLocale(name);
-    if (!Lokalise.hasMetadata()) {
-      Lokalise.setMetadata(_metadata);
+    if (!Lokalise.instance.hasMetadata) {
+      Lokalise.instance.metadata = _metadata;
     }
+
     return initializeMessages(localeName).then((_) {
       Intl.defaultLocale = localeName;
-      final instance = Tr();
-      Tr._current = instance;
-
+      final instance = Lt._internal();
       return instance;
     });
   }
 
-  static Tr of(BuildContext context) {
-    final instance = Tr.maybeOf(context);
+  static Lt of(BuildContext context) {
+    final instance = Localizations.of<Lt>(context, Lt);
     assert(instance != null,
         'No instance of Tr present in the widget tree. Did you add Tr.delegate in localizationsDelegates?');
     return instance!;
-  }
-
-  static Tr? maybeOf(BuildContext context) {
-    return Localizations.of<Tr>(context, Tr);
   }
 
   static final Map<String, List<String>> _metadata = {
@@ -121,33 +128,16 @@ class Tr {
   }
 }
 
-class AppLocalizationDelegate extends LocalizationsDelegate<Tr> {
-  const AppLocalizationDelegate();
-
-  List<Locale> get supportedLocales {
-    return const <Locale>[
-      Locale.fromSubtags(languageCode: 'en'),
-      Locale.fromSubtags(languageCode: 'es'),
-    ];
-  }
+class _AppLocalizationDelegate extends LocalizationsDelegate<Lt> {
+  const _AppLocalizationDelegate();
 
   @override
-  bool isSupported(Locale locale) => _isSupported(locale);
-  @override
-  Future<Tr> load(Locale locale) => Tr.load(locale);
-  @override
-  bool shouldReload(AppLocalizationDelegate old) => false;
+  bool isSupported(Locale locale) => Lt.supportedLocales.any(
+      (supportedLocale) => supportedLocale.languageCode == locale.languageCode);
 
-  bool _isSupported(Locale locale) {
-    for (var supportedLocale in supportedLocales) {
-      if (supportedLocale.languageCode == locale.languageCode) {
-        return true;
-      }
-    }
-    return false;
-  }
+  @override
+  Future<Lt> load(Locale locale) => Lt.load(locale);
+
+  @override
+  bool shouldReload(_AppLocalizationDelegate old) => false;
 }
-
-// ignore_for_file: non_constant_identifier_names, lines_longer_than_80_chars
-// ignore_for_file: join_return_with_assignment, prefer_final_in_for_each
-// ignore_for_file: avoid_redundant_argument_values, avoid_escaping_inner_quotes

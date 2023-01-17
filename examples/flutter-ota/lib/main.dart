@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-//import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:lokalise_flutter_sdk/ota/lokalise_sdk.dart';
 import 'generated/l10n.dart';
 
@@ -59,10 +58,8 @@ class _TodoListState extends State<TodoList> {
   @override
   void initState() {
     super.initState();
-    Lokalise.update().then(
-        // after localization delegates
+    Lokalise.instance.update().then(
         (response) => setState(() {
-              //Tr.load(const Locale('es')); // if you want to change locale
               _isLoading = false;
             }),
         onError: (error) => setState(() {
@@ -74,7 +71,7 @@ class _TodoListState extends State<TodoList> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(Tr.of(context).list_title),
+        title: Text(Lt.of(context).list_title),
       ),
       body: ListView(
         padding: const EdgeInsets.symmetric(vertical: 8.0),
@@ -89,7 +86,7 @@ class _TodoListState extends State<TodoList> {
           ? const CircularProgressIndicator()
           : FloatingActionButton(
               onPressed: () => _displayDialog(),
-              tooltip: Tr.of(context).addButton,
+              tooltip: Lt.of(context).addButton,
               child: const Icon(Icons.add)),
     );
   }
@@ -113,14 +110,14 @@ class _TodoListState extends State<TodoList> {
       barrierDismissible: false, // user must tap button!
       builder: (BuildContext context) {
         return AlertDialog(
-          title: Text(Tr.of(context).title_addItem),
+          title: Text(Lt.of(context).title_addItem),
           content: TextField(
             controller: _textFieldController,
-            decoration: InputDecoration(hintText: Tr.of(context).hint_addItem),
+            decoration: InputDecoration(hintText: Lt.of(context).hint_addItem),
           ),
           actions: <Widget>[
             TextButton(
-              child: Text(Tr.of(context).button_addItem),
+              child: Text(Lt.of(context).button_addItem),
               onPressed: () {
                 Navigator.of(context).pop();
                 _addTodoItem(_textFieldController.text);
@@ -143,29 +140,34 @@ class TodoApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blueGrey,
       ),
-      onGenerateTitle: (context) => Tr.of(context).title,
+      onGenerateTitle: (context) => Lt.of(context).title,
       localizationsDelegates: const [
-        //AppLocalizations.delegate,
-        Tr.delegate,
+        Lt.delegate,
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate,
       ],
-      supportedLocales: Tr.delegate.supportedLocales,
-      /* [
-        Locale('en', ''), // English, no country code
-        Locale('es', ''), // Spanish, no cou`ntry code
-      ],*/
+      supportedLocales: Lt.supportedLocales,
       home: const TodoList(),
     );
   }
 }
 
-void main() {
-  Lokalise.init('d24a6c4e93076b29e71347e8c39713f87f1e',
-      '595412416388cd7cdebfe5.92023764');
-  //Lokalise.setVersion(1);
-  runApp(
-    const TodoApp(),
-  );
+// void main() {
+//   Lokalise.init('d24a6c4e93076b29e71347e8c39713f87f1e',
+//       '595412416388cd7cdebfe5.92023764');
+//   //Lokalise.setVersion(1);
+//   runApp(
+//     const TodoApp(),
+//   );
+// }
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Lokalise.init(
+      sdkToken: 'd24a6c4e93076b29e71347e8c39713f87f1e',
+      projectId: '595412416388cd7cdebfe5.92023764',
+      preRelease: false,
+      appVersion: 0);
+  runApp(const TodoApp());
 }
