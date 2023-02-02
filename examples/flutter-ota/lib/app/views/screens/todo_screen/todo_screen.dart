@@ -39,29 +39,29 @@ class _TodoScreen extends State<TodoScreen> {
 
   Widget _buildBody(BuildContext context) {
     final completed = widget._todos.where((e) => e.completed).toList();
-    final notCompleted = widget._todos.where((e) => !e.completed).toList();
+    final pending = widget._todos.where((e) => !e.completed).toList();
 
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 20),
       child: Column(
         mainAxisSize: MainAxisSize.max,
         children: [
-          const Text(
-            'Total de tareas: 5',
-            style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+          Text(
+            Lt.of(context).total_todo(widget._todos.length),
+            style: const TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
           ),
           const SizedBox(height: 15),
           Flexible(
             child: TodoSection(
-              title: 'No hay tareas pendientes:',
-              todos: notCompleted,
+              title: Lt.of(context).pending_todo(pending.length),
+              todos: pending,
               onTodoPress: _onTodoPress,
             ),
           ),
           const SizedBox(height: 10),
           Flexible(
             child: TodoSection(
-              title: 'No hay tareas completadas',
+              title: Lt.of(context).completed_todo(completed.length),
               todos: completed,
               onTodoPress: _onTodoPress,
             ),
