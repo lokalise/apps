@@ -13,6 +13,7 @@ class App extends StatelessWidget {
         primarySwatch: Colors.blueGrey,
       ),
       localizationsDelegates: Lt.localizationsDelegates,
+      // change by Locale('es') to simulate a Spanish device
       locale: const Locale('en'),
       supportedLocales: Lt.supportedLocales,
       home: TodoScreen(),
