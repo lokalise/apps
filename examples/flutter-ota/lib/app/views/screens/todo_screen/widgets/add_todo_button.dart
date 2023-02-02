@@ -17,7 +17,6 @@ class AddTodoButton extends StatelessWidget {
       child: const Icon(Icons.add),
       onPressed: () => showDialog(
         context: context,
-        barrierDismissible: false,
         builder: (_) => _AddTodoDialog(callback: _onAddPress),
       ),
     );

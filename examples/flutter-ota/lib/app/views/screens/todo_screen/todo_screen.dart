@@ -33,9 +33,41 @@ class _TodoScreen extends State<TodoScreen> {
     return BaseScreen(
       title: Lt.of(context).list_title,
       floatingActionButton: AddTodoButton(onAddPress: _onAddTodo),
-      body: _isLoading
-          ? const Loading()
-          : TodoSection(todos: widget._todos, onTodoPress: _onTodoPress),
+      body: _isLoading ? const Loading() : _buildBody(context),
+    );
+  }
+
+  Widget _buildBody(BuildContext context) {
+    final completed = widget._todos.where((e) => e.completed).toList();
+    final notCompleted = widget._todos.where((e) => !e.completed).toList();
+
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 20),
+      child: Column(
+        mainAxisSize: MainAxisSize.max,
+        children: [
+          const Text(
+            'Total de tareas: 5',
+            style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+          ),
+          const SizedBox(height: 15),
+          Flexible(
+            child: TodoSection(
+              title: 'No hay tareas pendientes:',
+              todos: notCompleted,
+              onTodoPress: _onTodoPress,
+            ),
+          ),
+          const SizedBox(height: 10),
+          Flexible(
+            child: TodoSection(
+              title: 'No hay tareas completadas',
+              todos: completed,
+              onTodoPress: _onTodoPress,
+            ),
+          ),
+        ],
+      ),
     );
   }
 
