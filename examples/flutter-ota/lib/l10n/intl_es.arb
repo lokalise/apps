@@ -1,10 +1,13 @@
 {
     "@@locale": "es",
     "@@last_modified": "2022-10-05T18:53:09+02:00",
-    "title": "Otra aplicación ToDo",
+    "title": "aplicación ToDo",
     "list_title": "Lista de tareas",
     "addButton": "Añadir tarea",
     "title_addItem": "Añada una nueva tarea",
     "hint_addItem": "Escriba aqui su nueva tarea",
-    "button_addItem": "Añadir"
+    "button_addItem": "Añadir",
+    "total_todo": "Tareas totales: {count}",
+    "pending_todo": "{count, plural, zero {No tienes tareas pendientes} one {Tienes una tarea pendiente} other {Tiene {count} tareas pendientes}}",
+    "completed_todo": "{count, plural, zero {No tienes tareas completadas} one {Tienes solo una tarea completada} other {Tienes {count} tareas completadas}}"
 }
