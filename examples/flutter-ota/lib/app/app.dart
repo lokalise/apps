@@ -15,10 +15,6 @@ class App extends StatelessWidget {
       localizationsDelegates: Lt.localizationsDelegates,
       supportedLocales: Lt.supportedLocales,
       home: TodoScreen(),
-
-      // By default, the app will pick the device locale,
-      // if you want to force a specific locale, you can use:
-      // locale: const Locale('es')
     );
   }
 }
