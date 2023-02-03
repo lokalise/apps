@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lokalise_flutter_sdk/ota/lokalise_sdk.dart';
 import 'package:to_do_app/app/models/todo_model.dart';
-import 'package:to_do_app/app/views/base/base_screen.dart';
 import 'package:to_do_app/app/views/custom_widgets/loading.dart';
 import 'package:to_do_app/app/views/screens/todo_screen/widgets/add_todo_button.dart';
 import 'package:to_do_app/app/views/screens/todo_screen/widgets/todo_section.dart';
@@ -30,10 +29,14 @@ class _TodoScreen extends State<TodoScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return BaseScreen(
-      title: Lt.of(context).list_title,
+    return Scaffold(
+      appBar: AppBar(title: Text(Lt.of(context).list_title)),
       floatingActionButton: AddTodoButton(onAddPress: _onAddTodo),
-      body: _isLoading ? const Loading() : _buildBody(context),
+      body: _isLoading
+          ? const Loading()
+          : SafeArea(
+              child: _buildBody(context),
+            ),
     );
   }
 
