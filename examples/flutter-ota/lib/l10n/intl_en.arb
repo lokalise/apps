@@ -1,10 +1,13 @@
 {
     "@@locale": "en",
     "@@last_modified": "2022-10-05T18:53:09+02:00",
-    "title": "Another ToDo App",
+    "title": "ToDo App",
     "list_title": "Todo list",
     "addButton": "Add Item",
     "title_addItem": "Add a new todo item",
     "hint_addItem": "Type your new todo",
-    "button_addItem": "Add"
+    "button_addItem": "Add",
+    "total_todo": "Total tasks: {count}",
+    "pending_todo": "{count, plural, zero {You don't have pending tasks} one {You have just one pending task} other {You have {count} pending tasks}}",
+    "completed_todo": "{count, plural, zero {You don't have completed tasks} one {You have just one completed task} other {You have {count} completed tasks}}"
 }
