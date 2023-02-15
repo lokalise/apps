@@ -14,7 +14,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:intl/intl.dart';
-import 'package:lokalise_flutter_sdk/ota/lokalise_sdk.dart';
+import 'package:lokalise_flutter_sdk/lokalise_flutter_sdk.dart';
 import 'intl/messages_all.dart';
 
 class Lt {
@@ -40,9 +40,7 @@ class Lt {
         ? locale.languageCode
         : locale.toString();
     final localeName = Intl.canonicalizedLocale(name);
-    if (!Lokalise.instance.hasMetadata) {
-      Lokalise.instance.metadata = _metadata;
-    }
+    Lokalise.instance.metadata = _metadata;
 
     return initializeMessages(localeName).then((_) {
       Intl.defaultLocale = localeName;
