@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:lokalise_flutter_sdk/ota/lokalise_sdk.dart';
+import 'package:lokalise_flutter_sdk/lokalise_flutter_sdk.dart';
 import 'package:to_do_app/app/models/todo_model.dart';
 import 'package:to_do_app/app/views/custom_widgets/loading.dart';
 import 'package:to_do_app/app/views/screens/todo_screen/widgets/add_todo_button.dart';
 import 'package:to_do_app/app/views/screens/todo_screen/widgets/todo_section.dart';
-import 'package:to_do_app/generated/l10n.dart';
+import 'package:to_do_app/l10n/generated/l10n.dart';
 
 class TodoScreen extends StatefulWidget {
   final List<TodoModel> _todos = [];

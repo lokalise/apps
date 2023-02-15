@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:to_do_app/app/models/todo_model.dart';
-import 'package:to_do_app/generated/l10n.dart';
+import 'package:to_do_app/l10n/generated/l10n.dart';
 
 class AddTodoButton extends StatelessWidget {
   final Function(TodoModel model) _onAddPress;
