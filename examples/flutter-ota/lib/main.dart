@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:lokalise_flutter_sdk/ota/lokalise_sdk.dart';
+import 'package:lokalise_flutter_sdk/lokalise_flutter_sdk.dart';
 import 'package:to_do_app/app/app.dart';
 
 void main() async {
