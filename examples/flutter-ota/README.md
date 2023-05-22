@@ -4,7 +4,7 @@ This is a very simple "todo" app created with Flutter that showcases the usage o
 
 Blog post covering this app: https://lokalise.com/blog/lokalise-flutter-sdk-and-working-with-over-the-air-flow
 
-Video tutorial: https://youtu.be/WwRmPMwgxhU
+Video tutorial: https://www.youtube.com/watch?v=QZexgRhFKic
 
 More information can be found in the docs: https://developers.lokalise.com/docs/flutter-sdk
 
