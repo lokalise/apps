@@ -24,6 +24,18 @@ export class NotificationsController extends ApplicationController {
         "is_hidden": true
       }, { project_id: payload.project.id })
     }
+    
+    if(payload.event === 'project.translations.updated') {
+      console.log(`Project name: #{payload.project.name`)
+      console.log(`User name: #{payload.user.full_name`)
+
+      payload.translations.forEach((translation) => {
+        console.log(`Translation ID: #{translation.id`)
+        console.log(`Translation value: #{translation.value`)
+        console.log(`Language: #{translation.language.name`)
+        console.log(`Key: #{translation.key.name`)
+      }
+    }
 
     res.sendStatus(200)
   }
