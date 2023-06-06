@@ -26,6 +26,18 @@ class WebhooksController < ApplicationController
 
       api_client.update_key project_id, key_id, is_hidden: true
     end
+    
+    if params[:event] == 'project.translations.updated'
+      puts "Project name: #{params[:project][:name]}"
+      puts "User name: #{params[:user][:full_name]}"
+
+      params[:translations].each do |translation|
+        puts "Translation ID: #{translation[:id]}"
+        puts "Translation value: #{translation[:value]}"
+        puts "Language: #{translation[:language][:name]}"
+        puts "Key: #{translation[:key][:name]}"
+      end
+    end
 
     head :ok
   end
