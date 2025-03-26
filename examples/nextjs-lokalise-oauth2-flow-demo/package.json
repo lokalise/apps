@@ -10,7 +10,7 @@
   "dependencies": {
     "@lokalise/node-api": "^14.2.0",
     "cookie": "^1.0.2",
-    "next": "^14.2.25",
+    "next": "^15.2.4",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   }
