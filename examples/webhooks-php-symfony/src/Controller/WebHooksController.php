@@ -69,6 +69,18 @@ class WebHooksController extends AbstractController
                 ]);
             }
         }
+        
+        if ($event === 'project.translations.updated') {
+            echo "Project name: {$data['project']['name']}";
+            echo "User name: {$data['user']['full_name']}";
+
+            foreach ($data['translations'] as $translation) {
+                echo "Translation ID: {$translation['id']}";
+                echo "Translation value: {$translation['value']}";
+                echo "Language: {$translation['language']['name']}";
+                echo "Key: {$translation['key']['name']}";
+            }
+        }
 
         return new Response('ok');
     }

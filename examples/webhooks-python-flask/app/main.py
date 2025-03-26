@@ -38,6 +38,17 @@ def notify():
         __client().update_key(data['project']['id'], data['key']['id'], {
             "is_hidden": True
         })
+      
+    if data['event'] == 'project.translations.updated':
+      print(f"Project name: {data['project']['name']}")
+      print(f"User name: {data['user']['full_name']}")
+
+      for translation in data['translations']:
+          print(f"Translation ID: {translation['id']}")
+          print(f"Translation value: {translation['value']}")
+          print(f"Language: {translation['language']['name']}")
+          print(f"Key: {translation['key']['name']}")
+          
     return "", 200
 
 

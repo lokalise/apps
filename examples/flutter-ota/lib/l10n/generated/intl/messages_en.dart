@@ -21,15 +21,24 @@ class MessageLookup extends MessageLookupByLibrary {
   @override
   String get localeName => 'en';
 
+  static m0(count) => "${Intl.plural(count, zero: 'You don\'t have completed tasks', one: 'You have just one completed task', other: 'You have ${count} completed tasks')}";
+
+  static m1(count) => "${Intl.plural(count, zero: 'You don\'t have pending tasks', one: 'You have just one pending task', other: 'You have ${count} pending tasks')}";
+
+  static m2(count) => "Total tasks: ${count}";
+
   @override
   final Map<String, dynamic> messages = _notInlinedMessages(_notInlinedMessages);
 
   static Map<String, dynamic> _notInlinedMessages(_) => {
       'addButton': MessageLookupByLibrary.simpleMessage('Add Item'),
     'button_addItem': MessageLookupByLibrary.simpleMessage('Add'),
+    'completed_todo': m0,
     'hint_addItem': MessageLookupByLibrary.simpleMessage('Type your new todo'),
     'list_title': MessageLookupByLibrary.simpleMessage('Todo list'),
-    'title': MessageLookupByLibrary.simpleMessage('Another ToDo App'),
-    'title_addItem': MessageLookupByLibrary.simpleMessage('Add a new todo item')
+    'pending_todo': m1,
+    'title': MessageLookupByLibrary.simpleMessage('ToDo App'),
+    'title_addItem': MessageLookupByLibrary.simpleMessage('Add a new todo item'),
+    'total_todo': m2
   };
 }

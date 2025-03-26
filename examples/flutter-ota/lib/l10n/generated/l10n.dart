@@ -14,7 +14,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:intl/intl.dart';
-import 'package:lokalise_flutter_sdk/ota/lokalise_sdk.dart';
+import 'package:lokalise_flutter_sdk/lokalise_flutter_sdk.dart';
 import 'intl/messages_all.dart';
 
 class Lt {
@@ -40,9 +40,7 @@ class Lt {
         ? locale.languageCode
         : locale.toString();
     final localeName = Intl.canonicalizedLocale(name);
-    if (!Lokalise.instance.hasMetadata) {
-      Lokalise.instance.metadata = _metadata;
-    }
+    Lokalise.instance.metadata = _metadata;
 
     return initializeMessages(localeName).then((_) {
       Intl.defaultLocale = localeName;
@@ -64,13 +62,16 @@ class Lt {
     'addButton': [],
     'title_addItem': [],
     'hint_addItem': [],
-    'button_addItem': []
+    'button_addItem': [],
+    'total_todo': ['count'],
+    'pending_todo': ['count'],
+    'completed_todo': ['count']
   };
 
-  /// `Another ToDo App`
+  /// `ToDo App`
   String get title {
     return Intl.message(
-      'Another ToDo App',
+      'ToDo App',
       name: 'title',
       desc: '',
       args: [],
@@ -124,6 +125,42 @@ class Lt {
       name: 'button_addItem',
       desc: '',
       args: [],
+    );
+  }
+
+  /// `Total tasks: {count}`
+  String total_todo(Object count) {
+    return Intl.message(
+      'Total tasks: $count',
+      name: 'total_todo',
+      desc: '',
+      args: [count],
+    );
+  }
+
+  /// `{count, plural, zero {You don't have pending tasks} one {You have just one pending task} other {You have {count} pending tasks}}`
+  String pending_todo(num count) {
+    return Intl.plural(
+      count,
+      zero: 'You don\'t have pending tasks',
+      one: 'You have just one pending task',
+      other: 'You have $count pending tasks',
+      name: 'pending_todo',
+      desc: '',
+      args: [count],
+    );
+  }
+
+  /// `{count, plural, zero {You don't have completed tasks} one {You have just one completed task} other {You have {count} completed tasks}}`
+  String completed_todo(num count) {
+    return Intl.plural(
+      count,
+      zero: 'You don\'t have completed tasks',
+      one: 'You have just one completed task',
+      other: 'You have $count completed tasks',
+      name: 'completed_todo',
+      desc: '',
+      args: [count],
     );
   }
 }
