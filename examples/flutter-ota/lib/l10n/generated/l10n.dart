@@ -29,11 +29,23 @@ class Lt {
 
   static const List<LocalizationsDelegate<dynamic>> localizationsDelegates =
       <LocalizationsDelegate<dynamic>>[
-    delegate,
-    GlobalMaterialLocalizations.delegate,
-    GlobalCupertinoLocalizations.delegate,
-    GlobalWidgetsLocalizations.delegate,
-  ];
+        delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+      ];
+
+  static final Map<String, List<String>> _metadata = {
+    'title': [],
+    'list_title': [],
+    'addButton': [],
+    'title_addItem': [],
+    'hint_addItem': [],
+    'button_addItem': [],
+    'total_todo': ['count'],
+    'pending_todo': ['count'],
+    'completed_todo': ['count'],
+  };
 
   static Future<Lt> load(Locale locale) {
     final name = (locale.countryCode?.isEmpty ?? false)
@@ -51,51 +63,26 @@ class Lt {
 
   static Lt of(BuildContext context) {
     final instance = Localizations.of<Lt>(context, Lt);
-    assert(instance != null,
-        'No instance of Tr present in the widget tree. Did you add Tr.delegate in localizationsDelegates?');
+    assert(
+      instance != null,
+      'No instance of Lt present in the widget tree. Did you add Lt.delegate in localizationsDelegates?',
+    );
     return instance!;
   }
 
-  static final Map<String, List<String>> _metadata = {
-    'title': [],
-    'list_title': [],
-    'addButton': [],
-    'title_addItem': [],
-    'hint_addItem': [],
-    'button_addItem': [],
-    'total_todo': ['count'],
-    'pending_todo': ['count'],
-    'completed_todo': ['count']
-  };
-
   /// `ToDo App`
   String get title {
-    return Intl.message(
-      'ToDo App',
-      name: 'title',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('ToDo App', name: 'title', desc: '', args: []);
   }
 
   /// `Todo list`
   String get list_title {
-    return Intl.message(
-      'Todo list',
-      name: 'list_title',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Todo list', name: 'list_title', desc: '', args: []);
   }
 
   /// `Add Item`
   String get addButton {
-    return Intl.message(
-      'Add Item',
-      name: 'addButton',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Add Item', name: 'addButton', desc: '', args: []);
   }
 
   /// `Add a new todo item`
@@ -120,12 +107,7 @@ class Lt {
 
   /// `Add`
   String get button_addItem {
-    return Intl.message(
-      'Add',
-      name: 'button_addItem',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Add', name: 'button_addItem', desc: '', args: []);
   }
 
   /// `Total tasks: {count}`
@@ -170,7 +152,8 @@ class _AppLocalizationDelegate extends LocalizationsDelegate<Lt> {
 
   @override
   bool isSupported(Locale locale) => Lt.supportedLocales.any(
-      (supportedLocale) => supportedLocale.languageCode == locale.languageCode);
+    (supportedLocale) => supportedLocale.languageCode == locale.languageCode,
+  );
 
   @override
   Future<Lt> load(Locale locale) => Lt.load(locale);
