@@ -8,4 +8,21 @@ Video tutorial: https://www.youtube.com/watch?v=QZexgRhFKic
 
 More information can be found in the docs: https://developers.lokalise.com/docs/flutter-sdk
 
-To run the app locally, you'll need to prepare your dev environment first [as explained in the Flutter docs](https://docs.flutter.dev/get-started/install).
+## Requirements
+
+- Flutter 3.x (Dart 3). To prepare your dev environment, follow the [Flutter install docs](https://docs.flutter.dev/get-started/install).
+- A Lokalise project with the [Lokalise OTA](https://developers.lokalise.com/docs/flutter-sdk) feature enabled.
+
+## Running the app
+
+1. Fill in your `projectId` and `sdkToken` in `lib/main.dart`.
+2. Install dependencies: `flutter pub get`.
+3. Run the app: `flutter run`.
+
+## Regenerating localization files
+
+After changing the `.arb` files in `lib/l10n`, regenerate the localization classes with:
+
+```bash
+dart run lokalise_flutter_sdk:gen-lok-l10n
+```
